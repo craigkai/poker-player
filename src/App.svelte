@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import { supabase } from "./supabaseClient";
   import type { AuthSession } from "@supabase/supabase-js";
-  import Account from "./lib/Account.svelte";
-  import Auth from "./lib/Auth.svelte";
+  import BestHands from "./components/BestHands.svelte";
+  import Buyins from "./components/Buyins.svelte";
 
   let session: AuthSession;
 
@@ -18,10 +18,16 @@
   });
 </script>
 
-<div class="container" style="padding: 50px 0 100px 0">
-  {#if !session}
-    <Auth />
-  {:else}
-    <Account {session} />
-  {/if}
+<div class="container">
+  Buy Ins
+  <Buyins {session} />
+
+  Best Hands
+  <BestHands {session} />
 </div>
+
+<style global lang="postcss">
+  @tailwind utilities;
+  @tailwind components;
+  @tailwind base;
+</style>
