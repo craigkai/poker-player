@@ -1,26 +1,11 @@
-<script>
-  export let session;
+<script lang="ts">
+  import EditableTable from "./EditableTable.svelte";
 
-  let players = ["Craig"];
+  let columns = ["Player", "Buy in"]
+  let data = [
+    ["John", "20, 40"],
+    ["Craig", "20, 20"]
+  ]
 </script>
 
-<table class="table-auto">
-  <thead>
-    <tr>
-      <th>Player</th>
-      <th>Buy In</th>
-    </tr>
-  </thead>
-  <tbody>
-    {#each players as player}
-      <tr>
-        <td>{player}</td>
-        <td>N/A</td>
-      </tr>
-    {/each}
-  </tbody>
-</table>
-
-{#if session}
-  Can Edit
-{/if}
+<EditableTable {columns} {data} />

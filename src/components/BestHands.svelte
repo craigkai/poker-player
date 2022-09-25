@@ -1,8 +1,10 @@
-<script>
-  export let session;
+<script lang="ts">
+  import EditableTable from "./EditableTable.svelte";
+
+  let columns = ["Best Hands"]
+  let data = [
+    ["3 3"],
+  ]
 </script>
 
-Best Hand
-{#if session}
-  Can Edit
-{/if}
+<EditableTable {columns} {data} />
